@@ -13,6 +13,8 @@
 .vim/
 .vscode/
 .vscode-oss/
+.icons/
+.gtkrc-*
 Desktop/
 Documents/
 Downloads/
