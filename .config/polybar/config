@@ -185,23 +185,23 @@ format-charging = <animation-charging> <label-charging>
 format-discharging = <animation-discharging> <label-discharging>
 
 format-full-prefix = " "
-format-full-prefix-foreground = #555
+format-full-prefix-foreground = ${colors.principal}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
-ramp-capacity-foreground = #555
+ramp-capacity-foreground = ${colors.principal}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
-animation-charging-foreground = #555
+animation-charging-foreground = ${colors.principal}
 animation-charging-framerate = 750
 
 animation-discharging-0 = 
 animation-discharging-1 = 
 animation-discharging-2 = 
-animation-discharging-foreground = #555
+animation-discharging-foreground = ${colors.principal}
 animation-discharging-framerate = 750
 
 [module/temperature]
@@ -219,7 +219,7 @@ label-warn-foreground = #e60053
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = #555
+ramp-foreground = ${colors.principal}
 
 [module/powermenu]
 type = custom/menu
