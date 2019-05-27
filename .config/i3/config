@@ -9,7 +9,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+#set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -29,8 +30,9 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 for_window [class=".*"] border pixel 0
+for_window [class=".*"] split toggle
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -180,15 +182,14 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+t exec thunar
+
 # Autostart applications
 exec_always --no-startup-id $HOME/.config/polybar/panel.sh
-exec_always setxkbmap es
+exec_always --no-startup-id setxkbmap es
 exec --no-startup-id ~/.screenlayout/tablet.sh
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b --config $HOME/.config/compton/compton.conf
-# exec --no-startup-id numlockx off
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
-# exec --no-startup-id xfce4-power-manager
 
 #exec_always --no-startup-id ff-theme-util
 #exec_always --no-startup-id fix_xcursor

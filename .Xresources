@@ -4,7 +4,7 @@
  
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
-URxvt.font: xft:xos4 Terminus:size=13
+URxvt.font: xft:xos4 Terminus:size=13,xft:Symbola:size=13
 Urxvt.letterSpace : -1
 URxvt.scrollBar: false
 URxvt.cursorBlink: true                                              
