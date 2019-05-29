@@ -188,7 +188,6 @@ bindsym $mod+p exec i3lock-fancy -b=0x3 -n
 exec_always --no-startup-id $HOME/.config/polybar/panel.sh
 exec --no-startup-id ~/.screenlayout/tablet.sh
 exec --no-startup-id /usr/lib/franz/franz
-#exec --no-startup-id setxkbmap -layout 'latam' -model pc105
 # doesnt work well, so i put this into xorg
 # Section "InputClass"
 #       Identifier "system-keyboard"
