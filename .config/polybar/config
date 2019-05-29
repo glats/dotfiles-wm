@@ -51,7 +51,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3
-modules-right = xbacklight pulseaudio wlan battery temperature date powermenu
+modules-right = xbacklight pulseaudio wlan battery temperature xkeyboard date powermenu
 bottom = true
 
 tray-position = right
@@ -104,10 +104,10 @@ label-separator = " "
 
 [module/xbacklight]
 type = internal/xbacklight
- 
+
 format = <label> <bar>
 label = BL
- 
+
 bar-width = 7
 bar-indicator = |
 bar-indicator-foreground = ${colors.principal}
@@ -118,13 +118,12 @@ bar-fill-foreground = ${colors.principal}
 bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.principal}
- 
-[module/backlight-acpi]
+
+[module/backlight]
 inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
-[module/wlan]
 [module/wlan]
 type = internal/network
 interface = wlp1s0
@@ -249,6 +248,18 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+[module/xkeyboard]
+type = internal/xkeyboard
+
+format-prefix = " "
+format-prefix-foreground = ${colors.principal}
+
+label-layout = %layout%
+
+label-indicator-padding = 1
+label-indicator-margin = 1
+label-indicator-background = ${colors.background}
 
 [module/date]
 type = internal/date
