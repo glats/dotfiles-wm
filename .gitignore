@@ -14,6 +14,7 @@
 .vscode/
 .vscode-oss/
 .icons/
+.mozilla/
 .gtkrc-*
 Desktop/
 Documents/
