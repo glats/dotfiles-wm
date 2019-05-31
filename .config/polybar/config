@@ -97,7 +97,8 @@ label-visible-padding = ${self.label-focused-padding}
  
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%!
-label-urgent-background = ${colors.principal}
+label-urgent-background = ${self.label-focused-underline}
+label-urgent-foreground = ${self.label-focused-background}
 label-urgent-padding = 2
 
 label-separator = " "
@@ -177,7 +178,7 @@ bar-volume-empty-foreground = ${colors.principal}
 type = internal/battery
 battery = BAT1
 adapter = ADP1
-full-at = 100
+full-at = 98
 
 format-charging = <animation-charging> <label-charging>
 
