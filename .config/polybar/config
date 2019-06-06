@@ -175,6 +175,7 @@ bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.principal}
 
 [module/battery]
+#ls -1 /sys/class/power_supply/
 type = internal/battery
 battery = BAT1
 adapter = ADP1
