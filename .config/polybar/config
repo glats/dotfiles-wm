@@ -13,7 +13,7 @@ background-alt = #444
 foreground = #dfdfdf
 foreground-alt = #555
 
-principal = #A4DFFF
+principal = #ffffff
 
 [settings]
 screenchange-reload = true
