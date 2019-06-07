@@ -51,7 +51,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3
-modules-right = xbacklight pulseaudio wlan battery temperature xkeyboard date powermenu
+modules-right = backlight pulseaudio wlan battery temperature xkeyboard date powermenu
 bottom = true
 
 tray-position = right
@@ -127,7 +127,7 @@ card = intel_backlight
 
 [module/wlan]
 type = internal/network
-interface = wlp1s0
+interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -177,8 +177,8 @@ bar-volume-empty-foreground = ${colors.principal}
 [module/battery]
 #ls -1 /sys/class/power_supply/
 type = internal/battery
-battery = BAT1
-adapter = ADP1
+battery = BAT0
+adapter = AC0
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
