@@ -22,7 +22,7 @@ default_border none
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg $HOME/Pictures/wallhaven-vgyzym.jpg fill
 output eDP-1 res 1920x1080
 output HDMI-A-1 disable
 #
