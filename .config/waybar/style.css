@@ -35,6 +35,11 @@ window#waybar {
     background: transparent;
 }
 
+#battery.good {
+    color: white;
+}
+
+
 @keyframes blink {
     to {
         background: transparent;
