@@ -1,6 +1,7 @@
 {
     "layer": "top",
     "position": "bottom",
+    "height": 24,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
     "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock"],
@@ -8,11 +9,10 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
-        // "icon-size": 21,
         "spacing": 10
     },
     "clock": {
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "{:%H:%M %d-%m-%Y}"
     },
     "cpu": {
         "format": "{usage}% "
