@@ -31,6 +31,9 @@ Video/
 .viminfo
 .wget-hsts
 .Xauthority
+.bashrc.bak
+.gnupg/
+build/
 *.txt
 !i3
 !polybar
