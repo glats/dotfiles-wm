@@ -1,0 +1,57 @@
+* {
+    border: none;
+    border-radius: 0;
+    color: white;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(43, 48, 59, 0.5);
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.focused {
+    border-bottom: 1.5px solid white;
+}
+
+#pulseaudio, #network, #cpu, #memory, #battery, #tray, #clock {
+    padding: 0 5px;
+    margin: 0 3px;
+}
+
+#mode {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+#battery.charging {
+    color: #26A65B;
+    background: transparent;
+}
+
+#battery.good {
+    color: white;
+}
+
+
+@keyframes blink {
+    to {
+        background: transparent;
+        color: black;
+    }
+}
+
+#battery.warning:not(.charging) {
+    background: transparent;
+    color: #f53c3c;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
