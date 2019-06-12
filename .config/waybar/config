@@ -1,6 +1,7 @@
 {
     "layer": "top",
     "position": "bottom",
+    "output": "eDP-1",
     "height": 24,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
