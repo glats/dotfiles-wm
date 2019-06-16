@@ -167,13 +167,13 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec $HOME/.config/i3/volume.sh up
+bindsym XF86AudioLowerVolume exec $HOME/.config/i3/volume.sh down
+bindsym XF86AudioMute exec $HOME/.config/i3/volume.sh mute
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec $HOME/.config/i3/brightness.sh up
+bindsym XF86MonBrightnessDown exec $HOME/.config/i3/brightness.sh down
 
 # Touchpad controls
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
@@ -190,6 +190,7 @@ bindsym Control+Print exec xfce4-screenshooter -w
 
 # Autostart applications
 exec_always --no-startup-id $HOME/.config/polybar/panel.sh
+exec_always --no-startup-id $HOME/.screenlayout/asus.sh
 # doesnt work well, so i put this into xorg
 # Section "InputClass"
 #       Identifier "system-keyboard"
@@ -201,6 +202,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec --no-startup-id thunar --daemon
 exec --no-startup-id libinput-gestures-setup start
+exec --no-startup-id xfce4-power-manager
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 #bar {
