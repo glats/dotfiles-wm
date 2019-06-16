@@ -190,7 +190,6 @@ bindsym Control+Print exec xfce4-screenshooter -w
 # Autostart applications
 exec_always --no-startup-id $HOME/.config/polybar/panel.sh
 exec --no-startup-id ~/.screenlayout/tablet.sh
-exec --no-startup-id /usr/lib/franz/franz
 # doesnt work well, so i put this into xorg
 # Section "InputClass"
 #       Identifier "system-keyboard"
