@@ -25,7 +25,7 @@
         "bat": "BAT0",
         "adapter": "AC0",
         "states": {
-            "good": 96,
+            "good": 97,
             "warning": 30,
             "critical": 15
         },
