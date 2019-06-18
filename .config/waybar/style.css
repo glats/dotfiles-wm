@@ -29,6 +29,7 @@ window#waybar {
     background: #64727D;
     border-bottom: 3px solid white;
 }
+
 #battery.charging {
     color: #26A65B;
     background: transparent;
