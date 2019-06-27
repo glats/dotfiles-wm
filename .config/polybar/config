@@ -8,10 +8,18 @@
 ;;__________________________________
 
 [colors]
-background = #222
-background-alt = #444
-foreground = #dfdfdf
-foreground-alt = #888888
+background = ${xrdb:color0:#222}
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color7:#222}
+;principal = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
+
+;[colors]
+;background = #222
+;background-alt = #444
+;foreground = #dfdfdf
+;foreground-alt = #888888
 
 principal = #ffffff
 
