@@ -30,7 +30,6 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 for_window [class=".*"] border pixel 0
-for_window [class=".*"] split toggle
 # start a terminal
 bindsym $mod+Return exec kitty
 
