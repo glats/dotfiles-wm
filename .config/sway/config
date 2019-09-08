@@ -14,7 +14,9 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
+set $term alacritty
+set $launch 'rofi -modi drun -show drun'
+set $file thunar
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 set $menu dmenu_path | dmenu | xargs swaymsg exec
@@ -22,9 +24,9 @@ default_border none
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output eDP-1 res 1920x1080
-output HDMI-A-1 disable
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output eDP-1 res 1920x1080 pos 0 768 bg /home/glats/Pictures/wallhaven-n6rv2w.png fill
+output HDMI-A-1 res 1360x768  pos 280 0 bg /home/glats/Pictures/wallhaven-mdwlq1.png fill
 #
 # Example configuration:
 #
@@ -45,7 +47,10 @@ output HDMI-A-1 disable
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
-
+exec_always import-gsettings \
+        gtk-theme:gtk-theme-name \
+        icon-theme:gtk-icon-theme-name \
+        cursor-theme:gtk-cursor-theme-name
 ### Input configuration
 #
 # Example configuration:
@@ -64,7 +69,7 @@ input * xkb_model "pc105"
 ### Custom configuration
 #
 smart_gaps on
-gaps inner 10
+gaps inner 5
 gaps outer 0
 ### Key bindings
 #
@@ -78,7 +83,9 @@ gaps outer 0
 
     # start your launcher
     bindsym $mod+d exec $menu
-
+    bindsym $mod+o exec $launch
+    # start file manager
+    bindsym $mod+t exec $file
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -203,7 +210,15 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ $(printf "%s\n" 100 $(($(pacmd dump-volumes | grep -m1 Sink | grep -Po '\d+(?=%)' | head -n1) + 3)) | sort -g | head -n1)%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -3%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+exec mako
+exec thunar --daemon
+exec pulseaudio --daemonize
 #
 # Status Bar:
 #
