@@ -30,8 +30,9 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 for_window [class=".*"] border pixel 0
+hide_edge_borders both
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec WINIT_HIDPI_FACTOR=1 alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
