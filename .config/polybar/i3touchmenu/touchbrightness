@@ -1,0 +1,15 @@
+[module/touchbrightdown]
+;; Brightness down
+type=custom/text
+content="  "
+content-foreground=#fff
+click-left=$HOME/.config/i3/brightness.sh down
+
+[module/touchbrightup]
+;; Brightness up
+type=custom/text
+content="    "
+content-foreground=#fff
+click-left=$HOME/.config/i3/brightness.sh up
+
+; vim:ft=dosini

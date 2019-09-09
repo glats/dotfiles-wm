@@ -7,6 +7,12 @@
 ;;   \____|_____/_/   \_\_| |____/
 ;;__________________________________
 
+include-file = ~/.config/polybar/i3touchmenu/i3touchmenu
+include-file = ~/.config/polybar/i3touchmenu/touchbrightness
+include-file = ~/.config/polybar/i3touchmenu/touchkeyboard
+include-file = ~/.config/polybar/i3touchmenu/touchredraw
+include-file = ~/.config/polybar/i3touchmenu/touchvolume
+
 [colors]
 background = ${xrdb:color0:#222}
 foreground = ${xrdb:color7:#222}
@@ -35,17 +41,17 @@ screenchange-reload = true
 
 [bar/main]
 width = 100%
-height = 25
+height = 40
 background = ${colors.background}
 foreground = ${colors.principal}
 
-line-size = 1
-line-color = #f00
+#line-size = 1
+#line-color = #f00
 
-border-top-size = 5
-border-left-size = 10
-border-right-size = 10
-border-color = #00000000
+#border-top-size = 5
+#border-left-size = 10
+#border-right-size = 10
+#border-color = #00000000
 
 radius-top = 5.0
 
@@ -55,16 +61,17 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = DejaVu Sans Mono:style=Book:size=8
-font-1 = Font Awesome 5 Free:style=Regular:size=9
-font-2 = Font Awesome 5 Free:style=Solid:size=9
-font-3 = Font Awesome 5 Brands:style=Regular:size=9
+font-0 = DejaVu Sans Mono:style=Book:size=12
+font-1 = Font Awesome 5 Free:style=Regular:size=12
+font-2 = Font Awesome 5 Free:style=Solid:size=12
+font-3 = Font Awesome 5 Brands:style=Regular:size=12
 font-4 = Noto Color Emoji:style=Regular:size=9:scale=10
 
 modules-left = i3
-modules-center = xwindow
-modules-right = xbacklight pulseaudio battery temperature xkeyboard date powermenu
-bottom = true
+modules-right = i3touchmenu touchredraw touchvoldown touchvolup touchbrightdown touchbrightup touchkeyboard date battery
+#modules-right = xbacklight pulseaudio battery temperature xkeyboard date powermenu
+#bottom = true
+fixed-center = true
 
 tray-position = right
 tray-padding = 2

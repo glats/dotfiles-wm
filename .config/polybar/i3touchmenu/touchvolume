@@ -1,0 +1,22 @@
+[module/touchvolmute]
+;; Mute
+type=custom/text
+content="  "
+content-foreground=#fff
+click-left=$HOME/.config/i3/volume.sh mute
+
+[module/touchvoldown]
+;; Volume down
+type=custom/text
+content="  "
+content-foreground=#fff
+click-left=$HOME/.config/i3/volume.sh down
+
+[module/touchvolup]
+;; Volume up
+type=custom/text
+content="    "
+content-foreground=#fff
+click-left=$HOME/.config/i3/volume.sh up
+
+; vim:ft=dosini
