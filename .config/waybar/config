@@ -5,27 +5,21 @@
     "height": 24,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray", "clock"],
+    "modules-right": ["pulseaudio", "network", "battery", "clock", "custom/power"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
-    "tray": {
-        "spacing": 10
+    "sway/workspaces": {
+         "all-outputs": true
     },
     "clock": {
-        "format": "{:%H:%M %d-%m-%Y}"
-    },
-    "cpu": {
-        "format": "{usage}% "
-    },
-    "memory": {
-        "format": "{}% "
+        "format": "{:%H:%M %d-%m-%Y} "
     },
     "battery": {
         "bat": "BAT0",
         "adapter": "AC0",
         "states": {
-            "good": 97,
+            "good": 99,
             "warning": 30,
             "critical": 15
         },
@@ -54,5 +48,9 @@
             "default": ["", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "custom/power": {
+        "format":"", 
+        "on-click":"swaynag -t warning -m 'Power Menu Options' -b 'Logout' 'swaymsg exit' -b 'Reboot' 'sudo reboot' -b 'Power off' 'sudo poweroff'"
     }
 }

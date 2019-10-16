@@ -62,9 +62,17 @@ exec_always import-gsettings \
 #       middle_emulation enabled
 #   }
 #
+input "1267:12357:ELAN1200:00_04F3:3045_Touchpad" {
+        tap enable
+        natural_scroll enabled
+        pointer_accel 0.3
+}
+input "2821:6171:ASUS_ROG_SICA" {
+        pointer_accel 0.7
+}
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-input * xkb_layout "latam"
+input * xkb_layout "es,latam"
 input * xkb_model "pc105"
 ### Custom configuration
 #
@@ -216,6 +224,8 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ $(printf 
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -3%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86KbdBrightnessUp exec kbdlight -i
+bindsym XF86KbdBrightnessDown exec kbdlight -d
 exec mako
 exec thunar --daemon
 exec pulseaudio --daemonize

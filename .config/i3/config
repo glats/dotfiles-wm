@@ -31,7 +31,7 @@ font pango:monospace 8
 floating_modifier $mod
 for_window [class=".*"] border pixel 0
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -169,6 +169,9 @@ bindsym $mod+r mode "resize"
 bindsym XF86AudioRaiseVolume exec $HOME/.config/i3/volume.sh up
 bindsym XF86AudioLowerVolume exec $HOME/.config/i3/volume.sh down
 bindsym XF86AudioMute exec $HOME/.config/i3/volume.sh mute
+
+bindsym XF86KbdBrightnessUp exec kbdlight -i
+bindsym XF86KbdBrightnessDown exec kbdlight -d
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec $HOME/.config/i3/brightness.sh up

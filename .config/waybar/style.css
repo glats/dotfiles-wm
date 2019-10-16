@@ -20,7 +20,7 @@ window#waybar {
     border-bottom: 1.5px solid white;
 }
 
-#pulseaudio, #network, #cpu, #memory, #battery, #tray, #clock {
+#pulseaudio, #network, #battery, #clock, #custom-power {
     padding: 0 5px;
     margin: 0 3px;
 }
@@ -30,14 +30,6 @@ window#waybar {
     border-bottom: 3px solid white;
 }
 
-#battery.charging {
-    color: #26A65B;
-    background: transparent;
-}
-
-#battery.good {
-    color: white;
-}
 
 
 @keyframes blink {
