@@ -226,6 +226,7 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86KbdBrightnessUp exec kbdlight -i
 bindsym XF86KbdBrightnessDown exec kbdlight -d
+bindsym Shift+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/Screenshot_$(date +'%Y-%m-%d_%H%M%S.png') #Screenshot_2019-06-18_23-00-38
 exec mako
 exec thunar --daemon
 exec pulseaudio --daemonize
