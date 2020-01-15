@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Volume notification: Pulseaudio and dunst
-set -u
 display=xorg
 if [[ -z $WAYLAND_DISPLAY ]]; then
     display=wayland
