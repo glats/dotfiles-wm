@@ -2,7 +2,10 @@
 
 # Volume notification: Pulseaudio and dunst
 set -e
-
+display=xorg
+if [[ -z $WAYLAND_DISPLAY ]]; then
+    display=wayland
+fi
 icon_path=/usr/share/icons/ePapirus/48x48/status/
 notify_id=506
 icon_low="notification-display-brightness-low.svg"
@@ -10,8 +13,8 @@ icon_med="notification-display-brightness-medium.svg"
 icon_high="notification-display-brightness-high.svg"
 icon_full="notification-display-brightness-full.svg"
 icon_off="notification-display-brightness-off.svg"
-notify=$HOME/.config/i3/notify-send.sh
-
+notify=`which notify-send.sh`
+replace_file=/tmp/brightness-notification-$display
 
 function get_brightness {
     printf "%.0f\n" $(light -G / 1)
@@ -46,7 +49,7 @@ function brightness_notification {
     echo $brightness
     icon=`get_brightness_icon $brightness`
     bar=`get_bar`
-    exec $notify --replace-file=/tmp/brightness-notification -u low -i $icon_path$icon $bar
+    exec $notify --replace-file=$replace_file -u low -i $icon_path$icon $bar
 }
 
 case $1 in
