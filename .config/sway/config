@@ -14,17 +14,18 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
+set $term alacritty
+set $launch wofi -S drun -I -p Choose -W 600 -H 500 -b -i -q | xargs swaymsg exec
+set $file thunar
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 set $menu dmenu_path | dmenu | xargs swaymsg exec
-default_border none
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg $HOME/Pictures/wallhaven-vgyzym.jpg fill
-output eDP-1 res 1920x1080 pos 0 900
-output HDMI-A-1 res 1440x900 pos 240 0
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output eDP-1 res 1920x1080 pos 0 768 bg /home/glats/Pictures/wallhaven-n6rv2w.png fill
+output HDMI-A-1 res 1360x768  pos 280 0 bg /home/glats/Pictures/wallhaven-mdwlq1.png fill
 #
 # Example configuration:
 #
@@ -36,16 +37,19 @@ output HDMI-A-1 res 1440x900 pos 240 0
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' \
-#               resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' \
+              resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
-
+exec_always import-gsettings \
+        gtk-theme:gtk-theme-name \
+        icon-theme:gtk-icon-theme-name \
+        cursor-theme:gtk-cursor-theme-name
 ### Input configuration
 #
 # Example configuration:
@@ -57,15 +61,25 @@ output HDMI-A-1 res 1440x900 pos 240 0
 #       middle_emulation enabled
 #   }
 #
+input "1267:12357:ELAN1200:00_04F3:3045_Touchpad" {
+        tap enable
+        natural_scroll enabled
+        pointer_accel 0.3
+}
+input "2821:6171:ASUS_ROG_SICA" {
+        pointer_accel 0.7
+}
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-input * xkb_layout "latam"
+input * xkb_layout "es,latam"
 input * xkb_model "pc105"
+input * xkb_options "grp:win_space_toggle"
 ### Custom configuration
 #
 smart_gaps on
-gaps inner 10
-gaps outer 0
+smart_borders on
+gaps inner 3
+gaps outer -3
 ### Key bindings
 #
 # Basics:
@@ -78,13 +92,18 @@ gaps outer 0
 
     # start your launcher
     bindsym $mod+d exec $menu
-
+    bindsym $mod+o exec $launch
+    # start file manager
+    bindsym $mod+t exec $file
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
     floating_modifier $mod normal
+    default_border none
+    hide_edge_borders --i3 smart
+    #popup_during_fullscreen smart
 
     # reload the configuration file
     bindsym $mod+Shift+c reload
@@ -203,7 +222,58 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+bindsym XF86MonBrightnessUp exec $HOME/.config/scripts/brightness.sh up
+bindsym XF86MonBrightnessDown exec $HOME/.config/scripts/brightness.sh down
+bindsym XF86AudioRaiseVolume exec $HOME/.config/scripts/volume.sh up
+bindsym XF86AudioLowerVolume exec $HOME/.config/scripts/volume.sh down
+bindsym XF86AudioMute exec $HOME/.config/scripts/volume.sh mute
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86KbdBrightnessUp exec kbdlight -i
+bindsym XF86KbdBrightnessDown exec kbdlight -d
+bindsym Shift+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/Screenshot_$(date +'%Y-%m-%d_%H%M%S.png') #Screenshot_2019-06-18_23-00-38
+exec mako
+exec thunar --daemon
+exec pulseaudio --daemonize
+#
+# swaynagmode [AUR] adds keyboard support to swaynag
+#
+	set $nag exec swaynagmode
+	mode "nag" {
+		bindsym {
+		  Ctrl+d    mode "default"
 
+		  Ctrl+c    $nag --exit
+		  q         $nag --exit
+		  Escape    $nag --exit
+
+		  Return    $nag --confirm
+
+		  Tab       $nag --select prev
+		  Shift+Tab $nag --select next
+
+		  Left      $nag --select next
+		  Right     $nag --select prev
+
+		  Up        $nag --select next
+		  Down      $nag --select prev
+		}
+	}
+#
+for_window [class=".*"] border pixel 0
+no_focus [app_id="waybar"]
+# Fix positioning of tooltips
+for_window [app_id="waybar" floating] {
+    move position cursor
+    move down -60px # adjust if some menus still don't fit
+}
+bindsym $mod+n mode notifications
+
+mode notifications {
+	bindsym Escape mode default
+	bindsym Return exec makoctl invoke; exec makoctl dismiss; mode default
+	bindsym d exec makoctl dismiss; mode default
+	bindsym Shift+d exec makoctl dismiss -a; mode default
+}
 #
 # Status Bar:
 #

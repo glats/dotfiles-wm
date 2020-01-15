@@ -46,8 +46,7 @@ function brightness_notification {
     echo $brightness
     icon=`get_brightness_icon $brightness`
     bar=`get_bar`
-    exec $notify -r $notify_id -u low -i $icon_path$icon $bar
-    echo $notify-send.sh -r $notify_id -u low -i $icon_path$icon $bar
+    exec $notify --replace-file=/tmp/brightness-notification -u low -i $icon_path$icon $bar
 }
 
 case $1 in

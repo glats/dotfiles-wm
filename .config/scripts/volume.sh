@@ -11,7 +11,7 @@ icon_med="notification-audio-volume-medium.svg"
 icon_high="notification-audio-volume-high.svg"
 icon_over="notification-audio-volume-high.svg"
 icon_mute="notification-audio-volume-muted.svg"
-notify=$HOME/.config/i3/notify-send.sh
+notify=`which notify-send.sh`
 
 
 function get_volume {
@@ -47,7 +47,7 @@ function volume_notification {
     volume=`get_volume`
     vol_icon=`get_volume_icon $volume`
     bar=`get_bar`
-    exec $notify -r $notify_id -u low -i $icon_path$vol_icon $bar
+    exec $notify --replace-file=/tmp/volume-notification -u low -i $icon_path$vol_icon $bar
 }
 
 function mute_notification {
