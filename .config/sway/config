@@ -15,12 +15,11 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term alacritty
-set $launch wofi -S drun -I -p Choose -W 600 -H 500 -b -i -q
+set $launch wofi -S drun -I -p Choose -W 600 -H 500 -b -i -q | xargs swaymsg exec
 set $file thunar
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 set $menu dmenu_path | dmenu | xargs swaymsg exec
-default_border none
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -38,11 +37,11 @@ output HDMI-A-1 res 1360x768  pos 280 0 bg /home/glats/Pictures/wallhaven-mdwlq1
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' \
-#               resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' \
+              resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -102,6 +101,9 @@ gaps outer -3
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
     floating_modifier $mod normal
+    default_border none
+    hide_edge_borders --i3 smart
+    #popup_during_fullscreen smart
 
     # reload the configuration file
     bindsym $mod+Shift+c reload
@@ -220,13 +222,13 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-bindsym XF86MonBrightnessUp exec light -A 5
-bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessUp exec $HOME/.config/scripts/brightness.sh up
+bindsym XF86MonBrightnessDown exec $HOME/.config/scripts/brightness.sh down
 bindsym XF86KbdBrightnessUp exec kbdlight -i
 bindsym XF86KbdBrightnessDown exec kbdlight -d
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ $(printf "%s\n" 100 $(($(pacmd dump-volumes | grep -m1 Sink | grep -Po '\d+(?=%)' | head -n1) + 3)) | sort -g | head -n1)%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -3%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec $HOME/.config/scripts/volume.sh up
+bindsym XF86AudioLowerVolume exec $HOME/.config/scripts/volume.sh down
+bindsym XF86AudioMute exec $HOME/.config/scripts/volume.sh mute
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86KbdBrightnessUp exec kbdlight -i
 bindsym XF86KbdBrightnessDown exec kbdlight -d
@@ -234,6 +236,46 @@ bindsym Shift+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/Screenshot_
 exec mako
 exec thunar --daemon
 exec pulseaudio --daemonize
+#
+# swaynagmode [AUR] adds keyboard support to swaynag
+#
+	set $nag exec swaynagmode
+	mode "nag" {
+		bindsym {
+		  Ctrl+d    mode "default"
+
+		  Ctrl+c    $nag --exit
+		  q         $nag --exit
+		  Escape    $nag --exit
+
+		  Return    $nag --confirm
+
+		  Tab       $nag --select prev
+		  Shift+Tab $nag --select next
+
+		  Left      $nag --select next
+		  Right     $nag --select prev
+
+		  Up        $nag --select next
+		  Down      $nag --select prev
+		}
+	}
+#
+for_window [class=".*"] border pixel 0
+no_focus [app_id="waybar"]
+# Fix positioning of tooltips
+for_window [app_id="waybar" floating] {
+    move position cursor
+    move down -60px # adjust if some menus still don't fit
+}
+bindsym $mod+n mode notifications
+
+mode notifications {
+	bindsym Escape mode default
+	bindsym Return exec makoctl invoke; exec makoctl dismiss; mode default
+	bindsym d exec makoctl dismiss; mode default
+	bindsym Shift+d exec makoctl dismiss -a; mode default
+}
 #
 # Status Bar:
 #

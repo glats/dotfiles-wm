@@ -1,47 +1,67 @@
 * {
     border: none;
     border-radius: 0;
-    color: white;
     font-size: 13px;
+    font-family:
+    monospace,
+    sans-serif;
     min-height: 0;
 }
 
 window#waybar {
     background: rgba(43, 48, 59, 0.5);
+    /* background: transparent; */
+    color: white;
 }
 
 #workspaces button {
     padding: 0 5px;
     background: transparent;
+    color: gray;
     border-bottom: 3px solid transparent;
 }
 
+#workspaces button.visible {
+    color: white;
+}
+
 #workspaces button.focused {
-    border-bottom: 1.5px solid white;
+    color: white;
+    border-bottom: 3px solid white;
 }
 
 #pulseaudio, #network, #battery, #clock, #custom-power {
     padding: 0 5px;
     margin: 0 3px;
+    color: white;
 }
 
 #mode {
     background: #64727D;
     border-bottom: 3px solid white;
 }
+#battery.warning {
+   color: rgba(255, 210, 4, 1);
+}
 
+#battery.critical {
+    color: rgba(238, 46, 36, 1);
+}
 
+#battery.charging {
+    color: rgba(217, 216, 216, 1);
+}
 
 @keyframes blink {
     to {
-        background: transparent;
+        background-color: #ffffff;
         color: black;
     }
 }
 
 #battery.warning:not(.charging) {
-    background: transparent;
-    color: #f53c3c;
+    background: #f53c3c;
+    color: white;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
