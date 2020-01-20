@@ -32,7 +32,7 @@ output HDMI-A-1 res 1360x768  pos 280 0 bg /home/glats/Pictures/wallhaven-mdwlq1
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-
+include colorscheme
 ### Idle configuration
 #
 # Example configuration:
@@ -80,6 +80,13 @@ smart_gaps on
 smart_borders on
 gaps inner 3
 gaps outer -3
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base05 $base0D $base00 $base0D $base0D
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
 ### Key bindings
 #
 # Basics:
@@ -224,8 +231,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 bindsym XF86MonBrightnessUp exec $HOME/.config/scripts/brightness.sh up
 bindsym XF86MonBrightnessDown exec $HOME/.config/scripts/brightness.sh down
-bindsym XF86KbdBrightnessUp exec kbdlight -i
-bindsym XF86KbdBrightnessDown exec kbdlight -d
 bindsym XF86AudioRaiseVolume exec $HOME/.config/scripts/volume.sh up
 bindsym XF86AudioLowerVolume exec $HOME/.config/scripts/volume.sh down
 bindsym XF86AudioMute exec $HOME/.config/scripts/volume.sh mute

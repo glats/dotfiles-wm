@@ -6,24 +6,25 @@ Xft.hintstyle:                  hintslight
 Xft.lcdfilter:                  lcdlight
 Xft.rgba:                       rgb
 
-! Base16 Material
+! Base16 Pop
 ! Scheme: Chris Kempson (http://chriskempson.com)
-#define base00 #263238
-#define base01 #2e3c43
-#define base02 #314549
-#define base03 #546e7a
-#define base04 #b2ccd6
-#define base05 #eeffff
-#define base06 #eeffff
+
+#define base00 #000000
+#define base01 #202020
+#define base02 #303030
+#define base03 #505050
+#define base04 #b0b0b0
+#define base05 #d0d0d0
+#define base06 #e0e0e0
 #define base07 #ffffff
-#define base08 #f07178
-#define base09 #f78c6c
-#define base0A #ffcb6b
-#define base0B #c3e88d
-#define base0C #89ddff
-#define base0D #82aaff
-#define base0E #c792ea
-#define base0F #ff5370
+#define base08 #eb008a
+#define base09 #f29333
+#define base0A #f8ca12
+#define base0B #37b349
+#define base0C #00aabb
+#define base0D #0e5a94
+#define base0E #b31e8d
+#define base0F #7a2d00
 
 *foreground:   base05
 #ifdef background_opacity
