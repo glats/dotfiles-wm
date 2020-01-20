@@ -46,7 +46,7 @@ exec swayidle -w \
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
-exec_always import-gsettings \
+exec_always ./import-gsettings \
         gtk-theme:gtk-theme-name \
         icon-theme:gtk-icon-theme-name \
         cursor-theme:gtk-cursor-theme-name
