@@ -5,12 +5,10 @@
 !.config/fontconfig
 !.config/i3
 !.config/nvim
-!.config/gtk-*
 !.config/polybar
 !.config/rofi
 !.config/sway
 !.config/waybar
 !.config/wofi
 !.Xresources
-!.gtkrc-2.0
 !.screenlayout/
