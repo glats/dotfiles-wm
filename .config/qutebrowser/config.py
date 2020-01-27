@@ -323,3 +323,8 @@ config.bind('<Alt+right>', 'forward')
 ## Type: Bool
 c.input.insert_mode.auto_leave = False
 
+## Automatically enter insert mode if an editable element is focused
+## after loading the page.
+## Type: Bool
+c.input.insert_mode.auto_load = True
+
