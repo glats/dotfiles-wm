@@ -293,3 +293,24 @@ c.colors.webpage.bg = base00
 ## Always restore open sites when qutebrowser is reopened.
 ## Type: Bool
 c.auto_save.session = True
+
+## When to show the scrollbar.
+## Type: String
+## Valid values:
+##   - always: Always show the scrollbar.
+##   - never: Never show the scrollbar.
+##   - when-searching: Show the scrollbar when searching for text in the webpage. With the QtWebKit backend, this is equal to `never`.
+c.scrolling.bar = 'always'
+
+## Open new tabs (middleclick/ctrl+click) in the background.
+## Type: Bool
+c.tabs.background = True
+
+## When to show the tab bar.
+## Type: String
+## Valid values:
+##   - always: Always show the tab bar.
+##   - never: Always hide the tab bar.
+##   - multiple: Hide the tab bar if only one tab is open.
+##   - switching: Show the tab bar when switching tabs.
+c.tabs.show = 'multiple'
