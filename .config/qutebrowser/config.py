@@ -314,3 +314,12 @@ c.tabs.background = True
 ##   - multiple: Hide the tab bar if only one tab is open.
 ##   - switching: Show the tab bar when switching tabs.
 c.tabs.show = 'multiple'
+
+## Bindings for normal mode
+config.bind('<Alt+left>', 'back')
+config.bind('<Alt+right>', 'forward')
+
+## Leave insert mode if a non-editable element is clicked.
+## Type: Bool
+c.input.insert_mode.auto_leave = False
+
