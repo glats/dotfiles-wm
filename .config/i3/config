@@ -226,7 +226,7 @@ exec_always --no-startup-id $HOME/.config/polybar/panel.sh
 exec_always --no-startup-id $HOME/.screenlayout/asus.sh
 exec --no-startup-id xfce4-clipman
 exec --no-startup-id setxkbmap -synch
-exec --no-startup-id xrdb ~/.Xresources
+exec --no-startup-id xrdb $HOME/.Xresources
 #exec --no-startup-id setxkbmap -layout 'latam' -model pc105
 # doesnt work well, so i put this into xorg
 # Section "InputClass"

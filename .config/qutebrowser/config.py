@@ -290,6 +290,10 @@ c.colors.tabs.selected.even.bg = base0D
 # color).
 c.colors.webpage.bg = base00
 
+#Open mpv
+config.bind('Y', 'hint links spawn prime-run mpv {hint-url} best')
+config.bind('W', 'hint links spawn prime-run streamlink --player mpv {hint-url} best')
+
 ## Always restore open sites when qutebrowser is reopened.
 ## Type: Bool
 c.auto_save.session = True
