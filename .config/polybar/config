@@ -62,15 +62,15 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Fira Code Retina:style=Regular:size=8
+font-0 = Cascadia Code:size=9
 font-1 = Font Awesome 5 Free:style=Regular:size=9
 font-2 = Font Awesome 5 Free:style=Solid:size=9
 font-3 = Font Awesome 5 Brands:style=Regular:size=9
 font-4 = Noto Color Emoji:style=Regular:size=9:scale=10
 
 modules-left = i3
-modules-center =
-modules-right = backlight pulseaudio wlan battery temperature xkeyboard date powermenu
+modules-center = xwindow
+modules-right = backlight pulseaudio mic wlan battery temperature xkeyboard calendar powermenu
 bottom = true
 
 tray-position = right
@@ -168,9 +168,9 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-label-muted =  muted
+label-muted =  muted
 format-muted-foreground = ${colors.foreground}
-interval = 2
+interval = 5
 
 [module/battery]
 #ls -1 /sys/class/power_supply/
@@ -267,19 +267,16 @@ label-indicator-padding = 1
 label-indicator-margin = 1
 label-indicator-background = ${colors.background}
 
-[module/date]
-type = internal/date
+[module/calendar]
+type = custom/script
+exec = ~/.config/scripts/popup-calendar.sh
 interval = 5
+click-left = ~/.config/scripts/popup-calendar.sh --popup &
 
-date =
-date-alt = " %Y-%m-%d"
-
-time = %H:%M
-time-alt = %H:%M:%S
-
-format-prefix = 
-format-prefix-foreground = ${colors.foreground}
-
-label = %date% %time%
-
-; vim:ft=dosini
+[module/mic]
+type = custom/script
+exec = ~/.config/scripts/mic.sh
+tail = true
+click-left = ~/.config/scripts/mic.sh mute
+scroll-up = ~/.config/scripts/mic.sh up
+scroll-down = ~/.config/scripts/mic.sh down
