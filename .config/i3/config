@@ -62,6 +62,8 @@ floating_modifier $mod
 for_window [class=".*"] border pixel 0
 for_window [class="Yad" title="yad-calendar"] floating enable
 for_window [title="Microsoft Teams Notification"] floating enable
+for_window [instance="notepadqq-bin" title="Search"] floating enable
+for_window [instance="jetbrains-pycharm" title="Confirm Exit"] floating enable
 # start a terminal
 bindsym $mod+Return exec kitty
 
