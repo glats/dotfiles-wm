@@ -69,8 +69,8 @@ font-3 = Font Awesome 5 Brands:style=Regular:size=9
 font-4 = Noto Color Emoji:style=Regular:size=9:scale=10
 
 modules-left = i3
-modules-center = xwindow
-modules-right = backlight pulseaudio mic wlan battery temperature xkeyboard calendar powermenu
+modules-center =
+modules-right = backlight pulseaudio mic batteryone batterytwo temperature xkeyboard calendar powermenu
 bottom = true
 
 tray-position = right
@@ -133,7 +133,7 @@ type = internal/backlight
 
 ; Use the following command to list available cards:
 ; $ ls -1 /sys/class/backlight/
-card = intel_backlight
+card = acpi_video0
 enable-scroll = true
 format = <ramp> <label>
 label = %percentage%%
@@ -172,13 +172,48 @@ label-muted =  muted
 format-muted-foreground = ${colors.foreground}
 interval = 5
 
-[module/battery]
+[module/batteryone]
+#ls -1 /sys/class/power_supply/
+type = internal/battery
+battery = BAT1
+adapter = AC
+full-at = 100
+format-charging = <animation-charging> <label-charging>
+
+format-discharging = <animation-discharging> <label-discharging>
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.foreground}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.foreground}
+animation-charging-framerate = 500
+
+
+animation-discharging-4 = 
+animation-discharging-3 = 
+animation-discharging-2 = 
+animation-discharging-1 = 
+animation-discharging-0 = 
+animation-discharging-foreground = ${colors.foreground}
+animation-discharging-framerate = 500
+[module/batterytwo]
 #ls -1 /sys/class/power_supply/
 type = internal/battery
 battery = BAT0
-adapter = AC0
-full-at = 94
-
+adapter = AC
+full-at = 100
 format-charging = <animation-charging> <label-charging>
 
 format-discharging = <animation-discharging> <label-discharging>
