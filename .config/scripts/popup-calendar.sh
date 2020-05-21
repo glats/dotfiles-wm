@@ -1,9 +1,9 @@
 #!/bin/sh
 
-BAR_HEIGHT=22  # polybar height
-BORDER_SIZE=1  # border size from your wm settings
-YAD_WIDTH=258  # 222 is minimum possible value
-YAD_HEIGHT=-530 # 193 is minimum possible value
+BAR_HEIGHT=70  # polybar height
+BORDER_SIZE=0  # border size from your wm settings
+YAD_WIDTH=222
+YAD_HEIGHT=188
 DATE=" $(date +"%Y-%m-%d %H:%M")"
 
 case "$1" in
