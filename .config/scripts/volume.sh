@@ -3,7 +3,7 @@
 # Volume notification: Pulseaudio and dunst
 [[ -z "${WAYLAND_DISPLAY}" ]] && display='xorg' || display='wayland'
 icon_path=/usr/share/icons/ePapirus/48x48/status/
-sink_nr=$(pactl list short sinks | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,' | head -n 1)   # use `pacmd list-sinks` to find out sink_nr
+sink_nr=$(pactl list short sinks | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,' | tail -n 1)   # use `pacmd list-sinks` to find out sink_nr
 icon_low="notification-audio-volume-low.svg"
 icon_med="notification-audio-volume-medium.svg"
 icon_high="notification-audio-volume-high.svg"
@@ -14,7 +14,7 @@ replace_file=/tmp/volume-notification-$display
 
 
 function get_volume {
-    pacmd list-sinks | awk '/\tvolume:/ { print $5 }'  | head -n1 | cut -d '%' -f 1
+    pacmd list-sinks | awk '/\tvolume:/ { print $5 }'  | tail -n1 | cut -d '%' -f 1
 }
 
 function get_volume_icon {
