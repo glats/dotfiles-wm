@@ -326,7 +326,7 @@ c.colors.tabs.selected.even.bg = xresources['*color4']
 
 # Background color for webpages if unset (or empty to use the theme's
 # color).
-c.colors.webpage.bg = xresources['*color0']
+# c.colors.webpage.bg = xresources['*color0']
 
 ## Number of commands to save in the command history. 0: no history / -1:
 ## unlimited
