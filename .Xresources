@@ -6,25 +6,25 @@ Xft.hintstyle:                  hintslight
 Xft.lcdfilter:                  lcdlight
 Xft.rgba:                       rgb
 
-! Base16 Synth Midnight Dark
-! Scheme: Michaël Ball (http://github.com/michael-ball/)
+! Base16 Bright
+! Scheme: Chris Kempson (http://chriskempson.com)
 
-#define base00 #040404
-#define base01 #141414
-#define base02 #242424
-#define base03 #61507a
-#define base04 #bfbbbf
-#define base05 #dfdbdf
-#define base06 #efebef
-#define base07 #fffbff
-#define base08 #b53b50
-#define base09 #e4600e
-#define base0A #dae84d
-#define base0B #06ea61
-#define base0C #7cede9
-#define base0D #03aeff
-#define base0E #ea5ce2
-#define base0F #9d4d0e
+#define base00 #000000
+#define base01 #303030
+#define base02 #505050
+#define base03 #b0b0b0
+#define base04 #d0d0d0
+#define base05 #e0e0e0
+#define base06 #f5f5f5
+#define base07 #ffffff
+#define base08 #fb0120
+#define base09 #fc6d24
+#define base0A #fda331
+#define base0B #a1c659
+#define base0C #76c7b7
+#define base0D #6fb3d2
+#define base0E #d381c3
+#define base0F #be643c
 
 *foreground:   base05
 #ifdef background_opacity
