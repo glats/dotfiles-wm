@@ -39,9 +39,9 @@ function volume_print {
 
     mute=$(pactl list sources | grep '^[[:space:]]Mute:' | tail -n 1 | awk '{ print $2 }')
     if [ "$mute" = "yes" ]; then
-        echo " muted" > $content_file
+        echo "%{F#242424}%{F-} muted" > $content_file
     else
-        echo " `get_volume`%" > $content_file
+        echo "%{F#242424}%{F-} `get_volume`%" > $content_file
     fi
 }
 function listen {

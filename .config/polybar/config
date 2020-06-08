@@ -29,7 +29,12 @@ background = ${colors.base00}
 foreground = ${colors.base07}
 foreground-alt = ${colors.base01}
 alert = ${colors.base08}
-
+warning = ${colors.base0A}
+green = ${colors.base0B}
+blue = ${colors.base0D}
+gray = ${colors.base02}
+violet = ${colors.base03}
+sky = ${colors.base0C}
 [settings]
 screenchange-reload = true
 ;compositing-background = xor
@@ -137,11 +142,11 @@ card = intel_backlight
 enable-scroll = true
 format = <ramp> <label>
 label = %percentage%%
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-3 = 
-ramp-4 = 
+ramp-0 = %{F#141414}%{F-}
+ramp-1 = %{F#242424}%{F-}
+ramp-2 = %{F#242424}%{F-}
+ramp-3 = %{F#242424}%{F-}
+ramp-4 = %{F#BFBBBF}%{F-}
 
 
 [module/wlan]
@@ -162,14 +167,14 @@ ramp-signal-foreground = ${colors.foreground}
 type = internal/pulseaudio
  
 format-volume = <ramp-volume> <label-volume>
+format-volume-foreground = ${colors.gray}
 label-volume = %percentage%%
 label-volume-foreground = ${colors.foreground}
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-label-muted =  muted
-format-muted-foreground = ${colors.foreground}
+label-muted = %{F#242424}%{F-} muted
 interval = 5
 
 [module/battery]
@@ -180,52 +185,48 @@ adapter = AC0
 full-at = 94
 
 format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
 
-format-discharging = <animation-discharging> <label-discharging>
-
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground}
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.green}
 
 ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.alert}
 ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colors.warning}
 ramp-capacity-2 = 
+ramp-capacity-2-foreground = ${colors.warning}
 ramp-capacity-3 = 
+ramp-capacity-3-foreground = ${colors.warning}
 ramp-capacity-4 = 
-ramp-capacity-foreground = ${colors.foreground}
+ramp-capacity-4-foreground = ${colors.green}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = ${colors.foreground}
-animation-charging-framerate = 500
-
-
-animation-discharging-4 = 
-animation-discharging-3 = 
-animation-discharging-2 = 
-animation-discharging-1 = 
-animation-discharging-0 = 
-animation-discharging-foreground = ${colors.foreground}
-animation-discharging-framerate = 500
+animation-charging-foreground = ${colors.warning}
+animation-charging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 60
+base-temperature = 45
+;warn-temperature = 65
 
 format = <ramp> <label>
+format-foreground = ${colors.blue}
 format-warn = <ramp> <label-warn>
+format-warn-foreground = ${colors.alert}
 
 label = %temperature-c%
+label-foregorund = ${colors.foreground}
 label-warn = %temperature-c%
-label-warn-foreground = #e60053
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground}
+ramp-0 = %{F#03AEFF}%{F-}
+ramp-1 = %{F#DAE84D}%{F-}
+ramp-2 = %{F#B53B50}%{F-}
 
 [module/powermenu]
 type = custom/menu
@@ -242,12 +243,16 @@ label-separator = |
 label-separator-foreground = ${colors.foreground}
 
 menu-0-0 = 
+menu-0-0-foreground = ${colors.blue}
 menu-0-0-exec = menu-open-1
 menu-0-1 = 
+menu-0-1-foreground = ${colors.warning}
 menu-0-1-exec = menu-open-2
 menu-0-2 = 
+menu-0-2-foreground = ${colors.green}
 menu-0-2-exec = menu-open-3
 menu-0-3 = 
+menu-0-3-foreground = ${colors.alert}
 menu-0-3-exec = menu-open-4
 
 menu-1-0 = no
@@ -273,7 +278,7 @@ menu-4-1-exec = loginctl poweroff
 [module/xkeyboard]
 type = internal/xkeyboard
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
+format-prefix-foreground = ${colors.gray}
 
 label-layout = %layout%
 
@@ -285,7 +290,7 @@ label-indicator-background = ${colors.background}
 type = custom/script
 exec = ~/.config/scripts/popup-calendar.sh
 interval = 5
-click-left = ~/.config/scripts/popup-calendar.sh --popup &
+click-left = ~/.config/scripts/popup-calendar.sh popup &
 
 [module/mic]
 type = custom/script
