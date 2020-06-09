@@ -1,4 +1,15 @@
 #!/usr/bin/env bash
+function color {
+    $HOME/.config/scripts/colors.sh $1
+}
+
+export BACKLIGHT_COLOR0="%{F$(color color10)}%{F-}"
+export BACKLIGHT_COLOR1="%{F$(color color11)}%{F-}"
+export BACKLIGHT_COLOR2="%{F$(color color12)}%{F-}"
+export MUTE_COLOR="%{F$(color color11)}%{F-}"
+export TEMPERATURE_COLOR0="%{F$(color color04)}%{F-}"
+export TEMPERATURE_COLOR1="%{F$(color color04)}%{F-}"
+export TEMPERATURE_COLOR2="%{F$(color color01)}%{F-}"
 # Terminate already running bar instances
 killall -q polybar
 

@@ -7,6 +7,9 @@ icon_high="notification-audio-volume-high.svg"
 icon_over="notification-audio-volume-high.svg"
 icon_mute="notification-audio-volume-muted.svg"
 content_file=/tmp/mic-$display
+function color {
+    $HOME/.config/scripts/colors.sh $1
+}
 
 function update_source {
     source=$(pactl list short sources | grep input | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,')
@@ -39,9 +42,9 @@ function volume_print {
 
     mute=$(pactl list sources | grep '^[[:space:]]Mute:' | tail -n 1 | awk '{ print $2 }')
     if [ "$mute" = "yes" ]; then
-        echo "%{F#242424}%{F-} muted" > $content_file
+        echo "%{F$(color color11)}%{F-} muted" > $content_file
     else
-        echo "%{F#242424}%{F-} `get_volume`%" > $content_file
+        echo "%{F$(color color11)}%{F-} `get_volume`%" > $content_file
     fi
 }
 function listen {

@@ -142,11 +142,11 @@ card = intel_backlight
 enable-scroll = true
 format = <ramp> <label>
 label = %percentage%%
-ramp-0 = %{F#141414}%{F-}
-ramp-1 = %{F#242424}%{F-}
-ramp-2 = %{F#242424}%{F-}
-ramp-3 = %{F#242424}%{F-}
-ramp-4 = %{F#BFBBBF}%{F-}
+ramp-0 = ${env:BACKLIGHT_COLOR0}
+ramp-1 = ${env:BACKLIGHT_COLOR1}
+ramp-2 = ${env:BACKLIGHT_COLOR1}
+ramp-3 = ${env:BACKLIGHT_COLOR1}
+ramp-4 = ${env:BACKLIGHT_COLOR2}
 
 
 [module/wlan]
@@ -174,7 +174,7 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-label-muted = %{F#242424}%{F-} muted
+label-muted = ${env:MUTE_COLOR} muted
 interval = 5
 
 [module/battery]
@@ -224,9 +224,9 @@ label = %temperature-c%
 label-foregorund = ${colors.foreground}
 label-warn = %temperature-c%
 
-ramp-0 = %{F#03AEFF}%{F-}
-ramp-1 = %{F#DAE84D}%{F-}
-ramp-2 = %{F#B53B50}%{F-}
+ramp-0 = ${env:TEMPERATURE_COLOR0}
+ramp-1 = ${env:TEMPERATURE_COLOR1}
+ramp-2 = ${env:TEMPERATURE_COLOR2}
 
 [module/powermenu]
 type = custom/menu
