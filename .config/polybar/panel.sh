@@ -6,7 +6,7 @@ function color {
 export BACKLIGHT_COLOR0="%{F$(color color10)}%{F-}"
 export BACKLIGHT_COLOR1="%{F$(color color11)}%{F-}"
 export BACKLIGHT_COLOR2="%{F$(color color12)}%{F-}"
-export MUTE_COLOR="%{F$(color color11)}%{F-}"
+export MUTE_COLOR="%{F$(color color11)}%{F-} muted"
 export TEMPERATURE_COLOR0="%{F$(color color4)}%{F-}"
 export TEMPERATURE_COLOR1="%{F$(color color3)}%{F-}"
 export TEMPERATURE_COLOR2="%{F$(color color1)}%{F-}"

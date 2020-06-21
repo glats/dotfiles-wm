@@ -174,7 +174,7 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-label-muted = ${env:MUTE_COLOR} muted
+label-muted = ${env:MUTE_COLOR}
 interval = 5
 
 [module/battery]
