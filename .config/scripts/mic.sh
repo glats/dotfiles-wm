@@ -1,17 +1,13 @@
 #!/bin/bash
 
 [[ -z "${WAYLAND_DISPLAY}" ]] && display='xorg' || display='wayland'
-icon_low="notification-audio-volume-low.svg"
-icon_med="notification-audio-volume-medium.svg"
-icon_high="notification-audio-volume-high.svg"
-icon_over="notification-audio-volume-high.svg"
-icon_mute="notification-audio-volume-muted.svg"
 content_file=/tmp/mic-$display
 function color {
     $HOME/.config/scripts/colors.sh $1
 }
 
 function update_source {
+    # always get the source (headphones, speakrs, etc)
     source=$(pactl list short sources | grep input | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,')
 }
 
@@ -48,15 +44,17 @@ function volume_print {
     fi
 }
 function listen {
-    if [ ! -f $content_file ]; then
-        volume_print
-    fi
-
-    echo "$(cat $content_file)"
-
+    # print the first time you ran the script
+    volume_print && echo "$(cat $content_file)"
     pactl subscribe | while read -r event; do
+        # the button on polybar is client and i read the file to avoid execute volume_print wht is also a client
+        # so you fall into a infinite loop
         if echo "$event" | grep -qv "Client" &>/dev/null; then
             echo "$(cat $content_file)"
+        fi
+        # when you use pavucontrol the event is 'change' on source #1
+        if echo "$event" | grep -q "'change' on source #1" &>/dev/null; then
+            volume_print
         fi
     done
 }
@@ -74,22 +72,3 @@ case "$1" in
         listen
         ;;
 esac
-
-# case $1 in
-#     up)
-#         pactl set-source-volume $source +5%
-#         volume_print
-#         ;;
-#     down)
-#         pactl set-source-volume $source -5%
-#         volume_print
-# 	    ;;
-#     mute)
-#         pactl set-source-mute $source toggle
-#         volume_print
-#         ;;
-#     *)
-#         volume_print
-#         ;;
-# esac
-

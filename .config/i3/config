@@ -60,21 +60,29 @@ client.background       $base07
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+#for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
 for_window [class=".*"] border pixel 0
 for_window [class="Yad" title="yad-calendar"] floating enable
 for_window [title="Microsoft Teams Notification"] floating enable
 for_window [instance="notepadqq-bin" title="Search"] floating enable
 for_window [instance="jetbrains-pycharm" title="Confirm Exit"] floating enable
 for_window [class="Blueman-manager" instance="blueman-manager"] floating enable
+for_window [class="mpv"] floating enable, move absolute position 1554px 1615px
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Blueman-manager"] floating enable
+#for_window [class="Connman-gtk"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="Nitrogen"] floating enable
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Shift+Return exec sakura
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+x kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
-bindsym $mod+o exec --no-startup-id rofi -modi drun -show drun
+bindsym $mod+p exec --no-startup-id rofi -modi drun -show drun
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -173,7 +181,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -222,7 +230,7 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+t exec thunar
-bindsym $mod+p exec i3lock-fancy -b=0x3 -n
+bindsym Control+Shift+l exec i3lock-fancy -b=0x3 -n
 bindsym Print exec xfce4-screenshooter -f
 bindsym Shift+Print exec xfce4-screenshooter -r
 bindsym Control+Print exec xfce4-screenshooter -w
@@ -239,6 +247,7 @@ exec --no-startup-id setxkbmap -synch
 #        Option "XkbLayout"  "latam,es"
 #        Option "XkbModel"   "pc105"
 #EndSection
+exec --no-startup-id $HOME/.config/scripts/player.py
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b --config $HOME/.config/picom/picom.conf
 exec --no-startup-id dunst
 exec --no-startup-id thunar --daemon
