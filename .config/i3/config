@@ -60,8 +60,6 @@ client.background       $base07
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-#for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
-#for_window [class=".*"] split toggle
 for_window [class=".*"] border pixel 0
 for_window [class="Yad" title="yad-calendar"] floating enable
 for_window [title="Microsoft Teams Notification"] floating enable
@@ -70,7 +68,6 @@ for_window [instance="jetbrains-pycharm" title="Confirm Exit"] floating enable
 for_window [class="mpv"] floating enable, move absolute position 1554px 1615px
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Blueman-manager"] floating enable
-#for_window [class="Connman-gtk"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Nitrogen"] floating enable
@@ -89,10 +86,10 @@ bindsym $mod+p exec --no-startup-id rofi -modi drun -show drun
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -124,7 +121,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+r layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -203,7 +200,7 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Shift+t exec thunar
-bindsym Control+Shift+l exec i3lock-fancy -b=0x3 -n
+bindsym Control+Shift+p exec i3lock-fancy -b=0x3 -n
 bindsym Print exec xfce4-screenshooter -f
 bindsym Shift+Print exec xfce4-screenshooter -r
 bindsym Control+Print exec xfce4-screenshooter -w
