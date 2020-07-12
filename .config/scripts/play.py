@@ -44,7 +44,7 @@ class Manager:
         self.player_manager = Playerctl.PlayerManager()
         self.player_manager.connect('name-appeared', self.on_name_appeared)
         self.player_manager.connect('name-vanished', self.on_name_vanished)
-
+        print('{}'.format(STOPPED), flush=True)
         self.main = GLib.MainLoop()
         self.main.run()
 
