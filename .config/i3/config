@@ -61,8 +61,8 @@ client.background       $base07
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 #for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
-for_window [class=".*"] split toggle
-for_window [class=".*"] border pixel 1
+#for_window [class=".*"] split toggle
+for_window [class=".*"] border pixel 0
 for_window [class="Yad" title="yad-calendar"] floating enable
 for_window [title="Microsoft Teams Notification"] floating enable
 for_window [instance="notepadqq-bin" title="Search"] floating enable
