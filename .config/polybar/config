@@ -74,8 +74,8 @@ font-3 = Font Awesome 5 Brands:style=Regular:size=9
 font-4 = Noto Color Emoji:style=Regular:size=9:scale=10
 
 modules-left = i3
-modules-center =
-modules-right = previous playpause next backlight pulseaudio mic wlan battery temperature xkeyboard calendar powermenu
+modules-center = backlight pulseaudio mic previous playpause next xkeyboard temperature battery
+modules-right = calendar powermenu
 bottom = true
 
 tray-position = right
@@ -297,14 +297,24 @@ menu-4-1-exec = loginctl poweroff
 
 [module/xkeyboard]
 type = internal/xkeyboard
-format-prefix = " "
-format-prefix-foreground = ${colors.gray}
+format = <label-layout> <label-indicator>
+format-spacing = 0
+;format-prefix = " "
 
-label-layout = %layout%
+label-layout = %icon% %layout%
+layout-icon-default = 
+;label-layout-foreground = ${colors.gray}
 
 label-indicator-padding = 1
 label-indicator-margin = 1
 label-indicator-background = ${colors.background}
+
+label-indicator-on-capslock =  a
+label-indicator-off-capslock =
+label-indicator-on-numlock =  1
+label-indicator-off-numlock =
+label-indicator-on-scrolllock = 
+label-indicator-off-scrolllock = 
 
 [module/calendar]
 type = custom/script

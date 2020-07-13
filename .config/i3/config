@@ -107,6 +107,18 @@ bindsym $mod+Shift+Down resize grow height 5 px or 5 ppt
 bindsym $mod+Shift+Up resize shrink height 5 px or 5 ppt
 bindsym $mod+Shift+Right resize grow width 5 px or 5 ppt
 
+# move focused window
+bindsym $mod+Control+h move left
+bindsym $mod+Control+j move down
+bindsym $mod+Control+k move up
+bindsym $mod+Control+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Control+Left move left
+bindsym $mod+Control+Down move down
+bindsym $mod+Control+Up move up
+bindsym $mod+Control+Right move right
+
 # split in horizontal orientation
 #bindsym $mod+h split h
 
@@ -121,7 +133,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+r layout toggle split
+bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -205,6 +217,8 @@ bindsym Print exec xfce4-screenshooter -f
 bindsym Shift+Print exec xfce4-screenshooter -r
 bindsym Control+Print exec xfce4-screenshooter -w
 bindsym $mod+x [urgent=latest] focus
+bindsym XF86Explorer exec thunar
+bindsym XF86Display exec arandr
 
 # Autostart applications
 exec_always --no-startup-id $HOME/.config/polybar/panel.sh
