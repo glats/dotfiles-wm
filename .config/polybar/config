@@ -324,7 +324,7 @@ click-left = ~/.config/scripts/popup-calendar.sh popup &
 
 [module/mic]
 type = custom/script
-exec = ~/.config/scripts/mic.sh
+exec = ~/.config/scripts/mic.sh 2> /dev/null
 tail = true
 click-left = ~/.config/scripts/mic.sh mute
 scroll-up = ~/.config/scripts/mic.sh up

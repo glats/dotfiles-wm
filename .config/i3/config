@@ -123,7 +123,7 @@ bindsym $mod+Control+Right move right
 #bindsym $mod+h split h
 
 # split in vertical orientation
-#bindsym $mod+v split v
+bindsym $mod+v split v
 
 bindsym $mod+t split toggle
 
@@ -232,7 +232,7 @@ exec --no-startup-id setxkbmap -synch
 #        Option "XkbModel"   "pc105"
 #EndSection
 exec --no-startup-id $HOME/.config/scripts/player.py
-exec --no-startup-id nitrogen --restore; sleep 1; picom -b --config $HOME/.config/picom/picom.conf
+exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id dunst
 exec --no-startup-id thunar --daemon
 exec --no-startup-id libinput-gestures-setup start
