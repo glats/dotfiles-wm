@@ -27,26 +27,27 @@ font pango:monospace 8
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+title_align center
 ## Base16 Pop
 # Author: Chris Kempson (http://chriskempson.com)
 #
 # You can use these variables anywhere in the i3 configuration file.
-set_from_resource $base00 i3wm.color0  #000000
-set_from_resource $base08 i3wm.color1  #202020
-set_from_resource $base0B i3wm.color2  #303030
-set_from_resource $base0A i3wm.color3  #505050
-set_from_resource $base0D i3wm.color4  #b0b0b0
-set_from_resource $base0E i3wm.color5  #d0d0d0
-set_from_resource $base0C i3wm.color6  #e0e0e0
-set_from_resource $base05 i3wm.color7  #ffffff
-set_from_resource $base03 i3wm.color8  #eb008a
-set_from_resource $base09 i3wm.color9  #f29333
-set_from_resource $base01 i3wm.color10 #f8ca12
-set_from_resource $base02 i3wm.color11 #37b349
-set_from_resource $base04 i3wm.color12 #00aabb
-set_from_resource $base06 i3wm.color13 #0e5a94
-set_from_resource $base0F i3wm.color14 #b31e8d
-set_from_resource $base07 i3wm.color15 #7a2d00
+set_from_resource $base00 i3wm.color0 #000000
+set_from_resource $base01 i3wm.color10 #303030
+set_from_resource $base02 i3wm.color11 #505050
+set_from_resource $base03 i3wm.color8 #b0b0b0
+set_from_resource $base04 i3wm.color12 #d0d0d0
+set_from_resource $base05 i3wm.color7 #e0e0e0
+set_from_resource $base06 i3wm.color13 #f5f5f5
+set_from_resource $base07 i3wm.color15 #ffffff
+set_from_resource $base08 i3wm.color1 #fb0120
+set_from_resource $base09 i3wm.color9 #fc6d24
+set_from_resource $base0A i3wm.color3 #fda331
+set_from_resource $base0B i3wm.color2 #a1c659
+set_from_resource $base0C i3wm.color6 #76c7b7
+set_from_resource $base0D i3wm.color4 #6fb3d2
+set_from_resource $base0E i3wm.color5 #d381c3
+set_from_resource $base0F i3wm.color14 #be643c
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border
@@ -59,56 +60,73 @@ client.background       $base07
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 1
 for_window [class="Yad" title="yad-calendar"] floating enable
 for_window [title="Microsoft Teams Notification"] floating enable
 for_window [instance="notepadqq-bin" title="Search"] floating enable
 for_window [instance="jetbrains-pycharm" title="Confirm Exit"] floating enable
-for_window [class="Blueman-manager" instance="blueman-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Blueman-manager"] floating enable
+for_window [class="Connman-gtk"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="Nitrogen"] floating enable
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Shift+Return exec kitty
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+x kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
-bindsym $mod+o exec --no-startup-id rofi -modi drun -show drun
+bindsym $mod+p exec --no-startup-id rofi -modi drun -show drun
+bindsym XF86LaunchA exec --no-startup-id rofi -modi drun -show drun
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-bindsym $mod+Tab focus right
+# resize
+bindsym $mod+Shift+h resize shrink width 5 px or 5 ppt
+bindsym $mod+Shift+j resize grow height 5 px or 5 ppt
+bindsym $mod+Shift+k resize shrink height 5 px or 5 ppt
+bindsym $mod+Shift+l resize grow width 5 px or 5 ppt
+
+bindsym $mod+Shift+Left resize shrink width 5 px or 5 ppt
+bindsym $mod+Shift+Down resize grow height 5 px or 5 ppt
+bindsym $mod+Shift+Up resize shrink height 5 px or 5 ppt
+bindsym $mod+Shift+Right resize grow width 5 px or 5 ppt
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Control+h move left
+bindsym $mod+Control+j move down
+bindsym $mod+Control+k move up
+bindsym $mod+Control+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Control+Left move left
+bindsym $mod+Control+Down move down
+bindsym $mod+Control+Up move up
+bindsym $mod+Control+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+#bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+#bindsym $mod+v split v
+
+bindsym $mod+t split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -172,38 +190,13 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec $HOME/.config/scripts/volume.sh up
 bindsym XF86AudioLowerVolume exec $HOME/.config/scripts/volume.sh down
 bindsym XF86AudioMute exec $HOME/.config/scripts/volume.sh mute
+bindsym XF86AudioMicMute exec $HOME/.config/scripts/mic.sh mute
 
 bindsym XF86KbdBrightnessUp exec kbdlight -i
 bindsym XF86KbdBrightnessDown exec kbdlight -d
@@ -220,17 +213,18 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-bindsym $mod+t exec thunar
-bindsym $mod+p exec i3lock-fancy -b=0x3 -n
-bindsym Print exec xfce4-screenshooter -f
-bindsym Shift+Print exec xfce4-screenshooter -r
-bindsym Control+Print exec xfce4-screenshooter -w
+bindsym $mod+Shift+t exec caja
+bindsym Control+Shift+p exec i3lock-fancy -b=0x3 -n
+bindsym Print exec mate-screenshot
+bindsym Shift+Print exec mate-screenshot -a
+bindsym Control+Print exec mate-screenshot -w
 bindsym $mod+x [urgent=latest] focus
+bindsym XF86Explorer exec caja
+bindsym XF86Display exec arandr
 
 # Autostart applications
 exec_always --no-startup-id $HOME/.config/polybar/panel.sh
-exec_always --no-startup-id $HOME/.screenlayout/asus.sh
-exec --no-startup-id xfce4-clipman
+exec_always --no-startup-id $HOME/.screenlayout/home.sh
 exec --no-startup-id setxkbmap -synch
 #exec --no-startup-id setxkbmap -layout 'latam' -model pc105
 # doesnt work well, so i put this into xorg
@@ -239,49 +233,12 @@ exec --no-startup-id setxkbmap -synch
 #        Option "XkbLayout"  "latam,es"
 #        Option "XkbModel"   "pc105"
 #EndSection
-exec --no-startup-id nitrogen --restore; sleep 1; picom -b --config $HOME/.config/picom/picom.conf
-exec --no-startup-id connman-ui-gtk
-exec --no-startup-id caffeine
+exec --no-startup-id $HOME/.config/scripts/player.py
+exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id dunst
-exec --no-startup-id thunar --daemon
 exec --no-startup-id libinput-gestures-setup start
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status
-#}
+exec --no-startup-id /usr/libexec/polkit-mate-authentication-agent-1
 binding_mode_indicator no
-smart_gaps on
+#smart_gaps on
 gaps inner 3
-gaps outer -3
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
-
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+gaps outer 3

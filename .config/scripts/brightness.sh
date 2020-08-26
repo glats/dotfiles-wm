@@ -42,7 +42,6 @@ function get_bar {
 
 function brightness_notification {
     brightness=`get_brightness`
-    echo $brightness
     icon=`get_brightness_icon $brightness`
     bar=`get_bar`
     exec $notify --replace-file=$replace_file -u low -i $icon_path$icon $bar
