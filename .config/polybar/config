@@ -195,7 +195,7 @@ ramp-volume-1 = 
 ramp-volume-2 = 
 
 label-muted = ${env:MUTE_COLOR}
-interval = 5
+interval = 2
 
 [module/battery]
 #ls -1 /sys/class/power_supply/
@@ -298,20 +298,15 @@ menu-4-1-exec = loginctl poweroff
 [module/xkeyboard]
 type = internal/xkeyboard
 format = <label-layout> <label-indicator>
-format-spacing = 0
-;format-prefix = " "
 
 label-layout = %icon% %layout%
 layout-icon-default = 
-;label-layout-foreground = ${colors.gray}
 
-label-indicator-padding = 1
-label-indicator-margin = 1
 label-indicator-background = ${colors.background}
 
-label-indicator-on-capslock =  a
+label-indicator-on-capslock = " a "
 label-indicator-off-capslock =
-label-indicator-on-numlock =  1
+label-indicator-on-numlock = " 1"
 label-indicator-off-numlock =
 label-indicator-on-scrolllock = 
 label-indicator-off-scrolllock = 

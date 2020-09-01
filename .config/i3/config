@@ -65,7 +65,6 @@ for_window [class="Yad" title="yad-calendar"] floating enable
 for_window [title="Microsoft Teams Notification"] floating enable
 for_window [instance="notepadqq-bin" title="Search"] floating enable
 for_window [instance="jetbrains-pycharm" title="Confirm Exit"] floating enable
-for_window [class="mpv"] floating enable, move absolute position 1554px 1615px
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Nm-connection-editor"] floating enable

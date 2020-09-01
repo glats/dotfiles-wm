@@ -136,6 +136,7 @@ let g:airline_skip_empty_sections = 1
 "" no one is really happy until you have this shortcuts
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
+cnoreabbrev X! x!
 cnoreabbrev Qall! qall!
 cnoreabbrev Wq wq
 cnoreabbrev Wa wa
@@ -143,6 +144,7 @@ cnoreabbrev wQ wq
 cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
+cnoreabbrev X x
 cnoreabbrev Qall qall
 "" NERDTree configuration
 let g:NERDTreeChDirMode=2

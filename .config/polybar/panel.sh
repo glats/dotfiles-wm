@@ -20,7 +20,7 @@ echo 'Launching polybar...'
 polybar main &
 
 # Start applets if they're not running
-for arg in "xfce4-clipman" "nm-applet" "caffeine"
+for arg in "xfce4-clipman" "nm-applet" "caffeine" "blueman-applet"
 do
     if ! ps ax | grep -v grep | grep -io "$arg"
     then
