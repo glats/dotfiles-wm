@@ -3,7 +3,7 @@
 [[ -z "${WAYLAND_DISPLAY}" ]] && display='xorg' || display='wayland'
 content_file=/tmp/mic-$display
 function color {
-    $HOME/.config/scripts/colors.sh $1
+    $HOME/.scripts/colors.sh $1
 }
 
 function update_source {

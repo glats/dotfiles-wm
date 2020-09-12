@@ -85,8 +85,8 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 ; this two options doenst work well put windows overall in i3
 ;wm-restack = i3
-;override-redirect = true 
-
+;override-redirect = true
+fixed-center = true
 cursor-click = pointer
 
 [module/previous]
@@ -106,7 +106,7 @@ click-left = playerctl next &
 
 [module/playpause]
 type = custom/script
-exec = ~/.config/scripts/play.py 2> /dev/null
+exec = ~/.scripts/play.py 2> /dev/null
 tail = true
 click-left = playerctl play-pause &
 
@@ -221,7 +221,7 @@ ramp-volume-1 = 
 ramp-volume-2 = 
 
 label-muted = ${env:MUTE_COLOR}
-interval = 5
+interval = 2
 
 [module/batteryone]
 #ls -1 /sys/class/power_supply/
@@ -356,35 +356,30 @@ menu-4-1-exec = loginctl poweroff
 [module/xkeyboard]
 type = internal/xkeyboard
 format = <label-layout> <label-indicator>
-format-spacing = 0
-;format-prefix = " "
 
 label-layout = %icon% %layout%
 layout-icon-default = 
-;label-layout-foreground = ${colors.gray}
 
-label-indicator-padding = 1
-label-indicator-margin = 1
 label-indicator-background = ${colors.background}
 
-label-indicator-on-capslock =  a
+label-indicator-on-capslock = " a "
 label-indicator-off-capslock =
-label-indicator-on-numlock =  1
+label-indicator-on-numlock = " 1"
 label-indicator-off-numlock =
 label-indicator-on-scrolllock = 
 label-indicator-off-scrolllock = 
 
 [module/calendar]
 type = custom/script
-exec = ~/.config/scripts/popup-calendar.sh
+exec = ~/.scripts/popup-calendar.sh
 interval = 5
-click-left = ~/.config/scripts/popup-calendar.sh popup &
+click-left = ~/.scripts/popup-calendar.sh popup &
 
 [module/mic]
 type = custom/script
-exec = ~/.config/scripts/mic.sh
+exec = ~/.scripts/mic.sh
 tail = true
-click-left = ~/.config/scripts/mic.sh mute
-scroll-up = ~/.config/scripts/mic.sh up
-scroll-down = ~/.config/scripts/mic.sh down
+click-left = ~/.scripts/mic.sh mute
+scroll-up = ~/.scripts/mic.sh up
+scroll-down = ~/.scripts/mic.sh down
 ; vim:ft=dosini
