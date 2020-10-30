@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 function color {
-    $HOME/.config/scripts/colors.sh $1
+    $HOME/.scripts/colors.sh $1
 }
 
 export BACKLIGHT_COLOR0="%{F$(color color10)}%{F-}"

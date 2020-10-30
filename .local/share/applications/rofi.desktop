@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=Rofi
+Comment=Application launcher
+TryExec=rofi -modi drun -show drun
+Exec=rofi -modi drun -show drun -- %u
+Icon=arrow-up-double
+Terminal=false
+StartupWMClass=RofiLauncher
+Type=Application
+Categories=Categories=GTK;Utility;

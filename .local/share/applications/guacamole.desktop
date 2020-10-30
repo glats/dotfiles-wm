@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Apache Guacamole
+Exec=/usr/lib/brave-bin/brave --profile-directory=Default --app=https://guac.glats.me
+Icon=brave-oehhjofolaihakcpfckmeihhpbhfgcek-Default
+StartupWMClass=crx_oehhjofolaihakcpfckmeihhpbhfgcek

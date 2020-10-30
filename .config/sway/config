@@ -231,11 +231,11 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-bindsym XF86MonBrightnessUp exec $HOME/.config/scripts/brightness.sh up
-bindsym XF86MonBrightnessDown exec $HOME/.config/scripts/brightness.sh down
-bindsym XF86AudioRaiseVolume exec $HOME/.config/scripts/volume.sh up
-bindsym XF86AudioLowerVolume exec $HOME/.config/scripts/volume.sh down
-bindsym XF86AudioMute exec $HOME/.config/scripts/volume.sh mute
+bindsym XF86MonBrightnessUp exec $HOME/.scripts/brightness.sh up
+bindsym XF86MonBrightnessDown exec $HOME/.scripts/brightness.sh down
+bindsym XF86AudioRaiseVolume exec $HOME/.scripts/volume.sh up
+bindsym XF86AudioLowerVolume exec $HOME/.scripts/volume.sh down
+bindsym XF86AudioMute exec $HOME/.scripts/volume.sh mute
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86KbdBrightnessUp exec kbdlight -i
 bindsym XF86KbdBrightnessDown exec kbdlight -d

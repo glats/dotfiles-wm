@@ -191,16 +191,16 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec $HOME/.config/scripts/volume.sh up
-bindsym XF86AudioLowerVolume exec $HOME/.config/scripts/volume.sh down
-bindsym XF86AudioMute exec $HOME/.config/scripts/volume.sh mute
+bindsym XF86AudioRaiseVolume exec $HOME/.scripts/volume.sh up
+bindsym XF86AudioLowerVolume exec $HOME/.scripts/volume.sh down
+bindsym XF86AudioMute exec $HOME/.scripts/volume.sh mute
 
 bindsym XF86KbdBrightnessUp exec kbdlight -i
 bindsym XF86KbdBrightnessDown exec kbdlight -d
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec $HOME/.config/scripts/brightness.sh up
-bindsym XF86MonBrightnessDown exec $HOME/.config/scripts/brightness.sh down
+bindsym XF86MonBrightnessUp exec $HOME/.scripts/brightness.sh up
+bindsym XF86MonBrightnessDown exec $HOME/.scripts/brightness.sh down
 
 # Touchpad controls
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
@@ -210,7 +210,7 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-bindsym $mod+Shift+t exec thunar
+bindsym $mod+Shift+t exec caja
 bindsym Control+Shift+p exec i3lock-fancy -b=0x3 -n
 bindsym Print exec xfce4-screenshooter -f
 bindsym Shift+Print exec xfce4-screenshooter -r
@@ -230,10 +230,10 @@ exec --no-startup-id setxkbmap -synch
 #        Option "XkbLayout"  "latam,es"
 #        Option "XkbModel"   "pc105"
 #EndSection
-exec --no-startup-id $HOME/.config/scripts/player.py
+exec --no-startup-id $HOME/.scripts/player.py
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id dunst
-exec --no-startup-id thunar --daemon
+# exec --no-startup-id thunar --daemon
 exec --no-startup-id libinput-gestures-setup start
 binding_mode_indicator no
 smart_gaps on

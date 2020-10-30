@@ -106,7 +106,7 @@ click-left = playerctl next &
 
 [module/playpause]
 type = custom/script
-exec = ~/.config/scripts/play.py 2> /dev/null
+exec = ~/.scripts/play.py 2> /dev/null
 tail = true
 click-left = playerctl play-pause &
 
@@ -313,15 +313,15 @@ label-indicator-off-scrolllock =
 
 [module/calendar]
 type = custom/script
-exec = ~/.config/scripts/popup-calendar.sh
+exec = ~/.scripts/popup-calendar.sh
 interval = 5
-click-left = ~/.config/scripts/popup-calendar.sh popup &
+click-left = ~/.scripts/popup-calendar.sh popup &
 
 [module/mic]
 type = custom/script
-exec = ~/.config/scripts/mic.sh 2> /dev/null
+exec = ~/.scripts/mic.sh 2> /dev/null
 tail = true
-click-left = ~/.config/scripts/mic.sh mute
-scroll-up = ~/.config/scripts/mic.sh up
-scroll-down = ~/.config/scripts/mic.sh down
+click-left = ~/.scripts/mic.sh mute
+scroll-up = ~/.scripts/mic.sh up
+scroll-down = ~/.scripts/mic.sh down
 ; vim:ft=dosini
