@@ -64,3 +64,4 @@ configuration {
     str:        " 💻";
     margin:     0px 0.3em 0em 0em ;
 }
+element-icon { size: 2ch;}

@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term sakura
 set $launch wofi -S drun -I -p Choose -W 600 -H 500 -b -i -q | xargs swaymsg exec
 set $file thunar
 # Your preferred application launcher
@@ -24,8 +24,8 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output eDP-1 res 1920x1080 pos 0 768 bg /home/glats/Pictures/wallhaven-n6rv2w.png fill
-output HDMI-A-1 res 1360x768  pos 280 0 bg /home/glats/Pictures/wallhaven-mdwlq1.png fill
+output eDP-1 res 1920x1080 pos 0 1080 bg /home/glats/Pictures/wallhaven-n6rv2w.png fill
+output HDMI-A-1 res 1920x1080  pos 0 0 bg /home/glats/Pictures/wallhaven-mdwlq1.png fill
 #
 # Example configuration:
 #
@@ -46,10 +46,10 @@ exec swayidle -w \
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
-exec_always ./import-gsettings \
-        gtk-theme:gtk-theme-name \
-        icon-theme:gtk-icon-theme-name \
-        cursor-theme:gtk-cursor-theme-name
+# exec_always ./import-gsettings \
+#         gtk-theme:gtk-theme-name \
+#         icon-theme:gtk-icon-theme-name \
+#         cursor-theme:gtk-cursor-theme-name
 ### Input configuration
 #
 # Example configuration:

@@ -71,7 +71,7 @@ for_window [class="Nm-connection-editor"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Nitrogen"] floating enable
 # start a terminal
-bindsym $mod+Shift+Return exec sakura
+bindsym $mod+Shift+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+x kill

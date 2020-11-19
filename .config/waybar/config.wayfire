@@ -2,19 +2,15 @@
     "layer": "top",
     "position": "bottom",
     "output": "eDP-1",
-    "height": 24,
+    "height": 30,
     "modules-left": ["wlr/taskbar"],
     "modules-center": [],
-    "modules-right": ["pulseaudio", "network", "battery", "clock", "backlight", "custom/power", "tray"],
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
+    "modules-right": ["backlight", "pulseaudio", "battery","clock", "custom/power",  "tray"],
     "wlr/taskbar": {
       "all-outputs": true,
-      //"active-first": true,
       "format": "{icon}",
       "icon-size": 12,
-      "tooltip-format": "{title}",
+      "tooltip": false,
       "on-click": "activate",
       "on-click-middle": "close",
       "on-click-right": "minimize"
@@ -39,12 +35,14 @@
     },
     "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
+        "tooltip": false,
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-disconnected": "Disconnected ⚠"
     },
     "pulseaudio": {
         //"scroll-step": 1,
+        "tooltip": false,
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
         "format-muted": "",
@@ -67,7 +65,10 @@
         "on-scroll-down": "light -U 5"
     },
     "custom/power": {
-        "format":"",
+        "format":"", 
         "on-click": "/home/glats/.config/wofi/wofi-exit-wayfire.sh"
+    },
+    "tray": {
+        "spacing": 10
     }
 }
