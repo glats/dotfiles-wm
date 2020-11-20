@@ -94,16 +94,16 @@ client.background       $base07
 # Basics:
 #
     # start a terminal
-    bindsym $mod+Return exec $term
+    bindsym $mod+Shift+Return exec $term
 
     # kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+Shift+x kill
 
     # start your launcher
     bindsym $mod+d exec $menu
-    bindsym $mod+o exec $launch
+    bindsym $mod+p exec $launch
     # start file manager
-    bindsym $mod+t exec $file
+    bindsym $mod+Shift+t exec $file
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -118,7 +118,7 @@ client.background       $base07
     bindsym $mod+Shift+c reload
 
     # exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -243,6 +243,7 @@ bindsym Shift+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/Screenshot_
 exec mako
 exec thunar --daemon
 exec pulseaudio --daemonize
+exec libinput-gestures -c $HOME/.config/libinput-gestures.conf
 #
 # swaynagmode [AUR] adds keyboard support to swaynag
 #
