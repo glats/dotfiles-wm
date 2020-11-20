@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=Hibernate
-Exec=loginctl hibernate
+Exec=/usr/bin/loginctl hibernate
 Icon=system-hibernate
 Terminal=false
 Type=Application

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=Suspend
-Exec=loginctl suspend
+Exec=/usr/bin/loginctl suspend
 Icon=system-suspend
 Terminal=false
 Type=Application
