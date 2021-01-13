@@ -5,6 +5,7 @@ Xft.hinting:                    1
 Xft.hintstyle:                  hintslight
 Xft.lcdfilter:                  lcdlight
 Xft.rgba:                       rgb
+Xcursor.theme:                  Adwaita
 
 ! Base16 Bright
 ! Scheme: Chris Kempson (http://chriskempson.com)

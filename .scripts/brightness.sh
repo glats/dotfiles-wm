@@ -1,9 +1,8 @@
 #!/usr/bin/bash
 
 # Volume notification: Pulseaudio and dunst
-[[ -z "${WAYLAND_DISPLAY}" ]] && display='xorg' || display='wayland'
+[[ -z "${WAYLAND_DISPLAY}" ]] && display='xorg'; bar='-' || display='wayland'; bar='_'
 icon_path=/usr/share/icons/ePapirus/48x48/status/
-notify_id=506
 icon_low="notification-display-brightness-low.svg"
 icon_med="notification-display-brightness-medium.svg"
 icon_high="notification-display-brightness-high.svg"
@@ -37,15 +36,19 @@ function get_brightness_icon {
 
 function get_bar {
     brightness=`get_brightness`
-    seq -s "─" $(($brightness / 5)) | sed 's/[0-9]//g'
+    seq -s "$bar" $(($brightness / 5)) | sed 's/[0-9]//g'
 }
 
 function brightness_notification {
     brightness=`get_brightness`
-    echo $brightness
     icon=`get_brightness_icon $brightness`
     bar=`get_bar`
-    exec $notify --replace-file=$replace_file -u low -i $icon_path$icon $bar
+    if [ ! -s $replace_file ]
+    then
+        exec $notify --print-id -u low -i $icon_path$icon $bar > $replace_file
+    else
+        exec $notify -r `cat $replace_file` -u low -i $icon_path$icon $bar
+    fi
 }
 
 case $1 in

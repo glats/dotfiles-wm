@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=Shutdown
-Exec=loginctl poweroff
+Exec=/usr/bin/loginctl poweroff
 Icon=system-shutdown
 Terminal=false
 Type=Application

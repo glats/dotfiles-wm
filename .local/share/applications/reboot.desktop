@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=Reboot
-Exec=loginctl reboot
+Exec=/usr/bin/loginctl reboot
 Icon=system-reboot
 Terminal=false
 Type=Application
