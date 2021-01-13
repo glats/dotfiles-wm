@@ -30,7 +30,7 @@
         },
         "interval": 1,
         "format": "{capacity}% {icon}",
-        "format-good": "100% {icon}",
+        "format-good": "{capacity}% {icon}",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {

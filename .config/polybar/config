@@ -81,8 +81,9 @@ bottom = true
 tray-position = right
 tray-padding = 2
 
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
+scroll-up = "#i3.prev"
+scroll-down = "#i3.next"
+reverse-scroll = false
 ; this two options doenst work well put windows overall in i3
 ;wm-restack = i3
 ;override-redirect = true 
